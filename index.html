@@ -254,9 +254,9 @@
         }
 
         @keyframes pulse {
-            0% { opacity: 0.7; }
-            50% { opacity: 1; }
-            100% { opacity: 0.7; }
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
         }
 
         .code-display {
@@ -329,21 +329,31 @@
 
         .matching-item {
             padding: 15px;
-            background: rgba(23, 42, 70, 0.9);
-            border: 1px solid #233554;
+            background: rgba(23, 42, 70, 0.95);
+            border: 1px solid #64ffda;
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
             text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            transform: translateY(-2px);
+            border: 2px solid #64ffda;
+            box-shadow: 
+                0 4px 12px rgba(0, 0, 0, 0.4),
+                0 0 0 1px rgba(100, 255, 218, 0.2);
         }
 
         .matching-item:hover {
-            background: rgba(35, 53, 84, 0.9);
+            background: rgba(35, 53, 84, 0.95);
+            transform: translateY(-4px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
         }
 
-        .matching-item.selected {
-            background: rgba(100, 255, 218, 0.2);
+        .matching-item.matched {
+            background: rgba(100, 255, 218, 0.3);
             border-color: #64ffda;
+            cursor: default;
+            box-shadow: 0 4px 12px rgba(100, 255, 218, 0.3);
         }
 
         .matching-item.matched {
@@ -459,7 +469,7 @@
             <h2>¡Bienvenido/a!</h2>
             <p>Eres un/a consultor/a especializado/a en ciudades inteligentes. Has sido contratado/a por el ayuntamiento de una ciudad española para resolver una serie de problemas tecnológicos que están afectando a sus sistemas inteligentes.</p>
             <p>Tu misión es resolver 30 desafíos relacionados con diferentes aspectos de una smart city para restaurar el funcionamiento completo de la ciudad.</p>
-            <p>Tienes un tiempo limitado antes de que los sistemas fallen completamente. ¡Demuestra tu expertise en tecnología urbana!</p>
+            <p>Tienes un tiempo limitado antes de que los sistemas fallen completamente. ¡Demuestra tu experticia en tecnología urbana!</p>
             <button class="btn" onclick="startGame()">Comenzar el Desafío</button>
         </div>
 
@@ -480,7 +490,7 @@
             
             <button class="btn-hint" onclick="toggleHint('hint-1')">¿Necesitas una pista?</button>
             <div class="hint" id="hint-1">
-                <p>Pista: Piensa en cómo crecen las rutas de transporte cuando se expande una red.</p>
+                <p>Pista: Observa cómo cada número se relaciona con el anterior multiplicando por un factor constante.</p>
             </div>
         </div>
 
@@ -488,7 +498,6 @@
         <div id="scene-2" class="scene">
             <h2>Fase 2: Gestión Energética Sostenible</h2>
             <p>El sistema de gestión energética de la ciudad necesita recalibrarse. Debes resolver este acertijo sobre energía renovable.</p>
-            
             <div class="puzzle-container">
                 <p>En una ciudad española, el 40% de la energía proviene de fuentes renovables. Si la ciudad consume 500 MWh diarios, ¿cuántos MWh provienen de fuentes renovables?</p>
                 <input type="text" id="energy-answer" placeholder="Ingresa tu respuesta en MWh">
@@ -942,7 +951,7 @@
             
             <button class="btn-hint" onclick="toggleHint('hint-19')">¿Necesitas una pista?</button>
             <div class="hint" id="hint-19">
-                <p>Pista: Considera el impacto ambiental directo, la resiliencia climática y la mejora de calidad de vida.</p>
+                <p>Pista: Considera el orden de intervención: primero lo que genera mayores beneficios ambientales a largo plazo, luego eficiencia operativa.</p>
             </div>
         </div>
 
@@ -989,8 +998,6 @@
                 <p>Pista: Piensa en cómo cada característica resuelve un problema específico de movilidad urbana.</p>
             </div>
         </div>
-
-        <!-- NUEVAS PRUEBAS TIPO 7 (Selección) -->
 
         <!-- Escena 21: Gestión del Agua -->
         <div id="scene-21" class="scene">
@@ -1054,7 +1061,7 @@
             
             <button class="btn-hint" onclick="toggleHint('hint-23')">¿Necesitas una pista?</button>
             <div class="hint" id="hint-23">
-                <p>Pista: Piensa en medidas que ofrezcan alternativas reales y atractivas al coche.</p>
+                <p>Pista: La solución aborda el problema desde múltiples frentes: limitación de acceso, oferta alternativa y seguridad en desplazamientos.</p>
             </div>
         </div>
 
@@ -1219,7 +1226,7 @@
             <div class="final-message">
                 <h2>¡Felicidades!</h2>
                 <p>Has logrado restaurar todos los sistemas de la ciudad inteligente.</p>
-                <p>Gracias a tu expertise, la ciudad ahora funciona de manera más eficiente, sostenible y conectada.</p>
+                <p>Gracias a tu experticia, la ciudad ahora funciona de manera más eficiente, sostenible y conectada.</p>
                 <div class="final-time" id="final-time"></div>
                 <p>Comparte tu logro con otros amantes de la tecnología urbana.</p>
                 <button class="btn" onclick="restartGame()">Jugar de Nuevo</button>
@@ -1230,9 +1237,11 @@
     <script>
         // Variables del juego
         let currentScene = 0;
+        let timerInterval;
+        let timeLeft;
+        const total_time = 1800;
         let totalScenes = 30;
         let startTime;
-        let timerInterval;
         let wasteAnswers = {
             yellow: [],
             green: [],
@@ -1428,7 +1437,7 @@
             const circularOptions = [
                 {text: 'Reciclaje de materiales', correct: false},
                 {text: 'Reparación y reutilización', correct: false},
-                {text: 'Vertido en landfill', correct: true},
+                {text: 'Vertido en un desagüe', correct: true},
                 {text: 'Compartición de recursos', correct: false},
                 {text: 'Diseño para la durabilidad', correct: false}
             ];
@@ -1805,13 +1814,62 @@
 
         // Temporizador
         function startTimer() {
+            timeLeft = total_time;
+            updateTimerDisplay();
+            
             timerInterval = setInterval(function() {
-                const now = new Date();
-                const elapsed = new Date(now - startTime);
-                const minutes = elapsed.getMinutes().toString().padStart(2, '0');
-                const seconds = elapsed.getSeconds().toString().padStart(2, '0');
-                document.getElementById('timer').textContent = `Tiempo: ${minutes}:${seconds}`;
+                timeLeft--;
+                updateTimerDisplay();
+                
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    endGameByTime();
+                }
             }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeLeft / 60).toString().padStart(2, '0');
+            const seconds = (timeLeft % 60).toString().padStart(2, '0');
+            document.getElementById('timer').textContent = `Tiempo: ${minutes}:${seconds}`;
+            
+            // Cambiar color cuando queden 10 segundos o menos
+            if (timeLeft <= 10) {
+                document.getElementById('timer').style.color = '#ff6b6b';
+                document.getElementById('timer').style.animation = 'pulse 0.5s infinite';
+            } else {
+                document.getElementById('timer').style.color = '#e6f1ff';
+                document.getElementById('timer').style.animation = 'none';
+            }
+        }
+
+        function endGameByTime() {
+            // Calcular pruebas completadas (currentScene - 1 porque empieza en 1)
+            const completedTests = currentScene - 1;
+            
+            // Ocultar todas las escenas
+            document.querySelectorAll('.scene').forEach(scene => {
+                scene.classList.remove('active');
+            });
+            
+            // Mostrar escena final con resultados
+            document.getElementById('scene-final').classList.add('active');
+            
+            // Actualizar el mensaje final
+            const finalMessage = document.querySelector('.final-message');
+            finalMessage.innerHTML = `
+                <h2>¡Tiempo Agotado!</h2>
+                <p>El tiempo de ${total_time} segundos ha terminado.</p>
+                <p>Has completado <strong>${completedTests}</strong> de ${totalScenes} pruebas.</p>
+                <div class="final-time">Pruebas superadas: ${completedTests}/${totalScenes}</div>
+                <p>¡Inténtalo de nuevo para mejorar tu puntuación!</p>
+                <button class="btn" onclick="restartGame()">Jugar de Nuevo</button>
+            `;
+            
+            // Desplazar a la escena final
+            setTimeout(() => {
+                document.getElementById('scene-final').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 300);
         }
 
         // Actualizar barra de progreso
@@ -1822,6 +1880,9 @@
 
         // Avanzar a la siguiente escena con desplazamiento
         function nextSceneWithScroll() {
+            if (timeLeft <= 0) {
+                return;
+            }
             document.getElementById(`scene-${currentScene}`).classList.remove('active');
             currentScene++;
 
@@ -2215,8 +2276,8 @@
 
         function checkCircularAnswer() {
             const feedback = document.getElementById('circular-feedback');
-            if (selectedOption.circular === 'Vertido en landfill') {
-                feedback.innerHTML = '<div class="success">¡Correcto! El vertido en landfill es contrario a los principios de economía circular.</div>';
+            if (selectedOption.circular === 'Vertido en un desagüe') {
+                feedback.innerHTML = '<div class="success">¡Correcto! El vertido en un desagüe es contrario a los principios de economía circular.</div>';
                 showContinueButton('circular');
             } else {
                 feedback.innerHTML = '<div class="error">Incorrecto. La economía circular busca eliminar los residuos.</div>';
@@ -2648,6 +2709,13 @@
 
         // Reiniciar juego completo
         function restartGame() {
+            // Detener el temporizador si está corriendo
+            if (timerInterval) {
+                clearInterval(timerInterval);
+            }
+            // Restaurar el color del temporizador
+            document.getElementById('timer').style.color = '#e6f1ff';
+            document.getElementById('timer').style.animation = 'none';
             currentScene = 0;
             wasteAnswers = { yellow: [], green: [], blue: [] };
             raeeAnswers = { 'punto-limpio': [], 'tienda': [], 'reparacion': [] };
