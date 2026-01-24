@@ -494,27 +494,176 @@
             </div>
         </div>
 
-        <!-- Escena 2: Gestión energética -->
+        <!-- Escena 2: Movilidad como Servicio (MaaS) -->
         <div id="scene-2" class="scene">
-            <h2>Fase 2: Gestión Energética Sostenible</h2>
-            <p>El sistema de gestión energética de la ciudad necesita recalibrarse. Debes resolver este acertijo sobre energía renovable.</p>
+            <h2>Fase 2: Plataforma de Movilidad como Servicio</h2>
+            <p>La plataforma MaaS (Mobility as a Service) necesita integrar correctamente los diferentes modos de transporte.</p>
+            
             <div class="puzzle-container">
-                <p>En una ciudad española, el 40% de la energía proviene de fuentes renovables. Si la ciudad consume 500 MWh diarios, ¿cuántos MWh provienen de fuentes renovables?</p>
-                <input type="text" id="energy-answer" placeholder="Ingresa tu respuesta en MWh">
-                <div class="feedback-container" id="energy-feedback"></div>
-                <button class="btn" id="energy-verify" onclick="checkEnergyAnswer()">Verificar</button>
-                <button class="btn" id="energy-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
+                <p>Relaciona cada característica de MaaS con su beneficio correspondiente:</p>
+                
+                <div class="matching-game">
+                    <div class="matching-column">
+                        <h3>Características de MaaS</h3>
+                        <div id="caracteristicas-container-20">
+                        </div>
+                    </div>
+                    <div class="matching-column">
+                        <h3>Beneficios</h3>
+                        <div id="beneficioA" class="matching-item" ondrop="dropMatch(event)" ondragover="allowDrop(event)">Facilita el uso combinado de transporte público y privado</div>
+                        <div id="beneficioB" class="matching-item" ondrop="dropMatch(event)" ondragover="allowDrop(event)">Permite optimizar tiempos de viaje</div>
+                        <div id="beneficioC" class="matching-item" ondrop="dropMatch(event)" ondragover="allowDrop(event)">Elimina la necesidad de múltiples apps y suscripciones</div>
+                        <div id="beneficioD" class="matching-item" ondrop="dropMatch(event)" ondragover="allowDrop(event)">Garantiza disponibilidad de medios de transporte</div>
+                    </div>
+                </div>
+                
+                <div class="reset-container">
+                    <button class="btn-reset" onclick="resetMatchingGame(2)">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                        </svg>
+                        Reiniciar
+                    </button>
+                </div>
+                
+                <div class="feedback-container" id="maas-feedback"></div>
+                <button class="btn" id="maas-verify" onclick="checkMaasAnswer()">Verificar</button>
+                <button class="btn" id="maas-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
             </div>
             
-            <button class="btn-hint" onclick="toggleHint('hint-2')">¿Necesitas una pista?</button>
-            <div class="hint" id="hint-2">
-                <p>Pista: Recuerda que el porcentaje representa una parte del total.</p>
+            <button class="btn-hint" onclick="toggleHint('hint-20')">¿Necesitas una pista?</button>
+            <div class="hint" id="hint-20">
+                <p>Pista: Piensa en cómo cada característica resuelve un problema específico de movilidad urbana.</p>
             </div>
         </div>
 
-        <!-- Escena 3: Sistema de residuos -->
+        <!-- Escena 3: Big Data Urbano -->
         <div id="scene-3" class="scene">
-            <h2>Fase 3: Gestión Inteligente de Residuos</h2>
+            <h2>Fase 3: Análisis de Big Data Urbano</h2>
+            <p>El sistema de análisis de datos urbanos ha identificado un patrón anómalo. Debes interpretar los datos.</p>
+            
+            <div class="puzzle-container">
+                <p>Observa esta serie de datos de consumo energético en diferentes distritos:</p>
+                <div class="code-display">Distrito A: 125 MWh<br>Distrito B: 180 MWh<br>Distrito C: 95 MWh<br>Distrito D: 210 MWh<br>Distrito E: 140 MWh</div>
+                <p>¿Cuál es el consumo energético medio de estos distritos?</p>
+                <input type="text" id="data-answer" placeholder="Ingresa tu respuesta en MWh">
+                <div class="feedback-container" id="data-feedback"></div>
+                <button class="btn" id="data-verify" onclick="checkDataAnswer()">Verificar</button>
+                <button class="btn" id="data-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
+            </div>
+            
+            <button class="btn-hint" onclick="toggleHint('hint-6')">¿Necesitas una pista?</button>
+            <div class="hint" id="hint-6">
+                <p>Pista: Calcula la suma de todos los valores y divide entre el número de distritos.</p>
+            </div>
+        </div>
+
+        <!-- Escena 4: Gobernanza de Datos -->
+        <div id="scene-4" class="scene">
+            <h2>Fase 4: Gobernanza de Datos Urbanos</h2>
+            <p>El sistema de gobernanza de datos necesita que identifiques principios éticos.</p>
+            
+            <div class="puzzle-container">
+                <p>¿Cuál de estos NO es un principio fundamental de la gobernanza de datos en ciudades inteligentes?</p>
+                <div class="option-group" id="governance-options">
+                </div>
+                <div class="feedback-container" id="governance-feedback"></div>
+                <button class="btn" id="governance-verify" onclick="checkGovernanceAnswer()">Verificar</button>
+                <button class="btn" id="governance-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
+            </div>
+            
+            <button class="btn-hint" onclick="toggleHint('hint-14')">¿Necesitas una pista?</button>
+            <div class="hint" id="hint-14">
+                <p>Pista: Piensa en prácticas que respeten los derechos de los ciudadanos.</p>
+            </div>
+        </div>
+
+        <!-- Escena 5: Energías Renovables -->
+        <div id="scene-5" class="scene">
+            <h2>Fase 5: Integración de Energías Renovables</h2>
+            <p>La ciudad debe elegir la mejor ubicación para una nueva instalación de energía renovable.</p>
+            
+            <div class="puzzle-container">
+                <p>¿Cuál de estas ubicaciones es MÁS adecuada para una planta de energía solar fotovoltaica?</p>
+                <select id="solar-answer">
+                    <option value="">Selecciona una opción</option>
+                </select>
+                <div class="feedback-container" id="solar-feedback"></div>
+                <button class="btn" id="solar-verify" onclick="checkSolarAnswer()">Verificar</button>
+                <button class="btn" id="solar-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
+            </div>
+            
+            <button class="btn-hint" onclick="toggleHint('hint-25')">¿Necesitas una pista?</button>
+            <div class="hint" id="hint-25">
+                <p>Pista: Piensa en ubicaciones con máxima exposición solar y mínimo impacto ambiental.</p>
+            </div>
+        </div>
+
+        <!-- Escena 6: Movilidad Activa -->
+        <div id="scene-6" class="scene">
+            <h2>Fase 6: Fomento de la Movilidad Activa</h2>
+            <p>El plan de movilidad activa necesita identificar infraestructuras adecuadas.</p>
+            
+            <div class="puzzle-container">
+                <p>Selecciona las infraestructuras que SÍ fomentan la movilidad activa (caminar y bicicleta) (4 respuestas correctas):</p>
+                <div class="option-group" id="active-options">
+                </div>
+                
+                <div class="feedback-container" id="active-feedback"></div>
+                <button class="btn" id="active-verify" onclick="checkActiveAnswer()">Verificar</button>
+                <button class="btn" id="active-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
+            </div>
+            
+            <button class="btn-hint" onclick="toggleHint('hint-28')">¿Necesitas una pista?</button>
+            <div class="hint" id="hint-28">
+                <p>Pista: Piensa en infraestructuras que hagan más seguros y atractivos los desplazamientos a pie y en bici.</p>
+            </div>
+        </div>
+
+        <!-- Escena 7: Turismo Inteligente -->
+        <div id="scene-7" class="scene">
+            <h2>Fase 7: Sistema de Turismo Inteligente</h2>
+            <p>La plataforma de turismo inteligente necesita que identifiques las tecnologías más adecuadas.</p>
+            
+            <div class="puzzle-container">
+                <p>¿Cuál de estas tecnologías NO se utiliza típicamente en sistemas de turismo inteligente?</p>
+                <div class="option-group" id="tourism-options">
+                </div>
+                <div class="feedback-container" id="tourism-feedback"></div>
+                <button class="btn" id="tourism-verify" onclick="checkTourismAnswer()">Verificar</button>
+                <button class="btn" id="tourism-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
+            </div>
+            
+            <button class="btn-hint" onclick="toggleHint('hint-11')">¿Necesitas una pista?</button>
+            <div class="hint" id="hint-11">
+                <p>Pista: Piensa en tecnologías relevantes para la experiencia turística.</p>
+            </div>
+        </div>
+
+        <!-- Escena 8: Separación de residuos orgánicos -->
+        <div id="scene-8" class="scene">
+            <h2>Fase 8: Gestión de Residuos Orgánicos</h2>
+            <p>El nuevo sistema de recogida de residuos orgánicos necesita que identifiques correctamente los materiales compostables.</p>
+            
+            <div class="puzzle-container">
+                <p>Selecciona los residuos que SÍ pueden ir al contenedor de orgánica (marrón) (6 respuestas correctas):</p>
+                <div class="option-group" id="organica-options">
+                </div>
+                
+                <div class="feedback-container" id="organica-feedback"></div>
+                <button class="btn" id="organica-verify" onclick="checkOrganicaAnswer()">Verificar</button>
+                <button class="btn" id="organica-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
+            </div>
+            
+            <button class="btn-hint" onclick="toggleHint('hint-17')">¿Necesitas una pista?</button>
+            <div class="hint" id="hint-17">
+                <p>Pista: Los residuos orgánicos son materiales biodegradables que pueden convertirse en compost.</p>
+            </div>
+        </div>
+
+        <!-- Escena 9: Sistema de residuos -->
+        <div id="scene-9" class="scene">
+            <h2>Fase 9: Gestión Inteligente de Residuos</h2>
             <p>Los sensores de los contenedores de reciclaje han dejado de funcionar. Para reactivarlos, debes ordenar correctamente los tipos de residuos.</p>
             
             <div class="puzzle-container">
@@ -548,90 +697,30 @@
             </div>
         </div>
 
-        <!-- Escena 4: IoT y Sensores -->
-        <div id="scene-4" class="scene">
-            <h2>Fase 4: Red de Sensores IoT</h2>
-            <p>La red de sensores IoT de la ciudad ha detectado anomalías. Debes identificar el sensor que no pertenece al ecosistema.</p>
+        <!-- Escena 10: Movilidad Sostenible -->
+        <div id="scene-10" class="scene">
+            <h2>Fase 10: Plan de Movilidad Sostenible</h2>
+            <p>La ciudad necesita elegir la mejor estrategia para promover la movilidad sostenible.</p>
             
             <div class="puzzle-container">
-                <p>Selecciona el sensor que NO forma parte de una red de ciudad inteligente:</p>
-                <div class="option-group" id="sensor-options">
-                </div>
-                <div class="feedback-container" id="sensor-feedback"></div>
-                <button class="btn" id="sensor-verify" onclick="checkSensorAnswer()">Verificar</button>
-                <button class="btn" id="sensor-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
-            </div>
-            
-            <button class="btn-hint" onclick="toggleHint('hint-4')">¿Necesitas una pista?</button>
-            <div class="hint" id="hint-4">
-                <p>Pista: Piensa en qué sensores se utilizan para monitorizar infraestructuras urbanas.</p>
-            </div>
-        </div>
-
-        <!-- Escena 5: Movilidad Eléctrica -->
-        <div id="scene-5" class="scene">
-            <h2>Fase 5: Movilidad Eléctrica</h2>
-            <p>El sistema de gestión de puntos de carga para vehículos eléctricos necesita reconfigurarse.</p>
-            
-            <div class="puzzle-container">
-                <p>Un coche eléctrico tiene una autonomía de 300 km. Si recorre 45 km diarios de media, ¿cuántos días puede circular sin necesidad de recargar?</p>
-                <input type="text" id="ev-answer" placeholder="Ingresa tu respuesta en días">
-                <div class="feedback-container" id="ev-feedback"></div>
-                <button class="btn" id="ev-verify" onclick="checkEvAnswer()">Verificar</button>
-                <button class="btn" id="ev-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
-            </div>
-            
-            <button class="btn-hint" onclick="toggleHint('hint-5')">¿Necesitas una pista?</button>
-            <div class="hint" id="hint-5">
-                <p>Pista: Divide la autonomía total entre el consumo diario.</p>
-            </div>
-        </div>
-
-        <!-- Escena 6: Big Data Urbano -->
-        <div id="scene-6" class="scene">
-            <h2>Fase 6: Análisis de Big Data Urbano</h2>
-            <p>El sistema de análisis de datos urbanos ha identificado un patrón anómalo. Debes interpretar los datos.</p>
-            
-            <div class="puzzle-container">
-                <p>Observa esta serie de datos de consumo energético en diferentes distritos:</p>
-                <div class="code-display">Distrito A: 125 MWh<br>Distrito B: 180 MWh<br>Distrito C: 95 MWh<br>Distrito D: 210 MWh<br>Distrito E: 140 MWh</div>
-                <p>¿Cuál es el consumo energético medio de estos distritos?</p>
-                <input type="text" id="data-answer" placeholder="Ingresa tu respuesta en MWh">
-                <div class="feedback-container" id="data-feedback"></div>
-                <button class="btn" id="data-verify" onclick="checkDataAnswer()">Verificar</button>
-                <button class="btn" id="data-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
-            </div>
-            
-            <button class="btn-hint" onclick="toggleHint('hint-6')">¿Necesitas una pista?</button>
-            <div class="hint" id="hint-6">
-                <p>Pista: Calcula la suma de todos los valores y divide entre el número de distritos.</p>
-            </div>
-        </div>
-
-        <!-- Escena 7: Conectividad 5G -->
-        <div id="scene-7" class="scene">
-            <h2>Fase 7: Red de Conectividad 5G</h2>
-            <p>La red 5G de la ciudad tiene problemas de cobertura. Debes optimizar la ubicación de las antenas.</p>
-            
-            <div class="puzzle-container">
-                <p>Selecciona la ubicación más adecuada para una nueva antena 5G considerando estos factores:</p>
-                <select id="antenna-answer">
+                <p>¿Cuál de estas medidas tiene MAYOR impacto en la reducción del uso del coche privado en el centro urbano?</p>
+                <select id="mobility-answer">
                     <option value="">Selecciona una opción</option>
                 </select>
-                <div class="feedback-container" id="antenna-feedback"></div>
-                <button class="btn" id="antenna-verify" onclick="checkAntennaAnswer()">Verificar</button>
-                <button class="btn" id="antenna-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
+                <div class="feedback-container" id="mobility-feedback"></div>
+                <button class="btn" id="mobility-verify" onclick="checkMobilityAnswer()">Verificar</button>
+                <button class="btn" id="mobility-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
             </div>
             
-            <button class="btn-hint" onclick="toggleHint('hint-7')">¿Necesitas una pista?</button>
-            <div class="hint" id="hint-7">
-                <p>Pista: Piensa en dónde se necesita mayor capacidad de red y cobertura.</p>
+            <button class="btn-hint" onclick="toggleHint('hint-23')">¿Necesitas una pista?</button>
+            <div class="hint" id="hint-23">
+                <p>Pista: La solución aborda el problema desde múltiples frentes: limitación de acceso, oferta alternativa y seguridad en desplazamientos.</p>
             </div>
         </div>
 
-        <!-- Escena 8: Edificios Inteligentes -->
-        <div id="scene-8" class="scene">
-            <h2>Fase 8: Gestión de Edificios Inteligentes</h2>
+        <!-- Escena 11: Edificios Inteligentes -->
+        <div id="scene-11" class="scene">
+            <h2>Fase 11: Gestión de Edificios Inteligentes</h2>
             <p>El sistema de gestión energética de un edificio inteligente necesita reprogramación.</p>
             
             <div class="puzzle-container">
@@ -648,9 +737,202 @@
             </div>
         </div>
 
-        <!-- Escena 9: Plataforma de Participación Ciudadana -->
-        <div id="scene-9" class="scene">
-            <h2>Fase 9: Plataforma de Participación Ciudadana</h2>
+        <!-- Escena 12: Gestión del Agua -->
+        <div id="scene-12" class="scene">
+            <h2>Fase 12: Sistema Inteligente de Gestión del Agua</h2>
+            <p>El sistema de gestión de agua potable necesita optimización para reducir pérdidas.</p>
+            
+            <div class="puzzle-container">
+                <p>¿Cuál de estas tecnologías es MÁS efectiva para detectar fugas en la red de distribución de agua?</p>
+                <select id="water-answer">
+                    <option value="">Selecciona una opción</option>
+                </select>
+                <div class="feedback-container" id="water-feedback"></div>
+                <button class="btn" id="water-verify" onclick="checkWaterAnswer()">Verificar</button>
+                <button class="btn" id="water-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
+            </div>
+            
+            <button class="btn-hint" onclick="toggleHint('hint-21')">¿Necesitas una pista?</button>
+            <div class="hint" id="hint-21">
+                <p>Pista: Piensa en tecnologías que permitan monitorización continua y detección temprana.</p>
+            </div>
+        </div>
+
+        <!-- Escena 13: Biodiversidad Urbana -->
+        <div id="scene-13" class="scene">
+            <h2>Fase 13: Fomento de la Biodiversidad Urbana</h2>
+            <p>El plan de biodiversidad necesita identificar acciones beneficiosas.</p>
+            
+            <div class="puzzle-container">
+                <p>Selecciona las acciones que SÍ fomentan la biodiversidad en entornos urbanos (5 respuestas correctas):</p>
+                <div class="option-group" id="biodiversity-options">
+                </div>
+                
+                <div class="feedback-container" id="biodiversity-feedback"></div>
+                <button class="btn" id="biodiversity-verify" onclick="checkBiodiversityAnswer()">Verificar</button>
+                <button class="btn" id="biodiversity-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
+            </div>
+            
+            <button class="btn-hint" onclick="toggleHint('hint-30')">¿Necesitas una pista?</button>
+            <div class="hint" id="hint-30">
+                <p>Pista: Las acciones que favorecen la biodiversidad crean habitats para diferentes especies.</p>
+            </div>
+        </div>
+
+        <!-- Escena 14: Economía Circular -->
+        <div id="scene-14" class="scene">
+            <h2>Fase 14: Sistema de Economía Circular</h2>
+            <p>La plataforma de economía circular necesita que identifiques prácticas sostenibles.</p>
+            
+            <div class="puzzle-container">
+                <p>¿Cuál de estas NO es una práctica característica de economía circular?</p>
+                <div class="option-group" id="circular-options">
+                </div>
+                <div class="feedback-container" id="circular-feedback"></div>
+                <button class="btn" id="circular-verify" onclick="checkCircularAnswer()">Verificar</button>
+                <button class="btn" id="circular-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
+            </div>
+            
+            <button class="btn-hint" onclick="toggleHint('hint-13')">¿Necesitas una pista?</button>
+            <div class="hint" id="hint-13">
+                <p>Pista: La economía circular busca eliminar los residuos y mantener los materiales en uso.</p>
+            </div>
+        </div>
+
+        <!-- Escena 15: Planificación Urbana Sostenible -->
+        <div id="scene-15" class="scene">
+            <h2>Fase 15: Planificación Urbana Sostenible</h2>
+            <p>El sistema de planificación urbana necesita que priorices proyectos según criterios de sostenibilidad.</p>
+            
+            <div class="puzzle-container">
+                <p>Ordena estos proyectos de planificación urbana del más prioritario (1) al menos prioritario (4) arrastrando los proyectos (no los números):</p>
+                
+                <div id="planificacion-container" style="display: grid; grid-template-columns: 1fr; gap: 15px; margin: 20px 0;">
+                </div>
+                
+                <div class="reset-container">
+                    <button class="btn-reset" onclick="resetPlanificacion()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                        </svg>
+                        Reiniciar
+                    </button>
+                </div>
+                
+                <div class="feedback-container" id="planificacion-feedback"></div>
+                <button class="btn" id="planificacion-verify" onclick="checkPlanificacionAnswer()">Verificar</button>
+                <button class="btn" id="planificacion-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
+            </div>
+            
+            <button class="btn-hint" onclick="toggleHint('hint-19')">¿Necesitas una pista?</button>
+            <div class="hint" id="hint-19">
+                <p>Pista: Considera el orden de intervención: primero lo que genera mayores beneficios ambientales a largo plazo, luego eficiencia operativa.</p>
+            </div>
+        </div>
+
+        <!-- Escena 16: Huertos Urbanos -->
+        <div id="scene-16" class="scene">
+            <h2>Fase 16: Gestión de Huertos Urbanos</h2>
+            <p>El programa de huertos urbanos necesita identificar prácticas sostenibles.</p>
+            
+            <div class="puzzle-container">
+                <p>Selecciona las prácticas que SÍ son sostenibles para huertos urbanos (5 respuestas correctas):</p>
+                <div class="option-group" id="garden-options">
+                </div>
+                
+                <div class="feedback-container" id="garden-feedback"></div>
+                <button class="btn" id="garden-verify" onclick="checkGardenAnswer()">Verificar</button>
+                <button class="btn" id="garden-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
+            </div>
+            
+            <button class="btn-hint" onclick="toggleHint('hint-27')">¿Necesitas una pista?</button>
+            <div class="hint" id="hint-27">
+                <p>Pista: Las prácticas sostenibles respetan el medio ambiente y promueven la biodiversidad.</p>
+            </div>
+        </div>
+
+        <!-- Escena 17: Movilidad Eléctrica -->
+        <div id="scene-17" class="scene">
+            <h2>Fase 17: Movilidad Eléctrica</h2>
+            <p>El sistema de gestión de puntos de carga para vehículos eléctricos necesita reconfigurarse.</p>
+            
+            <div class="puzzle-container">
+                <p>Un coche eléctrico tiene una autonomía de 300 km. Si recorre 45 km diarios de media, ¿cuántos días puede circular sin necesidad de recargar?</p>
+                <input type="text" id="ev-answer" placeholder="Ingresa tu respuesta en días">
+                <div class="feedback-container" id="ev-feedback"></div>
+                <button class="btn" id="ev-verify" onclick="checkEvAnswer()">Verificar</button>
+                <button class="btn" id="ev-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
+            </div>
+            
+            <button class="btn-hint" onclick="toggleHint('hint-5')">¿Necesitas una pista?</button>
+            <div class="hint" id="hint-5">
+                <p>Pista: Divide la autonomía total entre el consumo diario.</p>
+            </div>
+        </div>
+
+        <!-- Escena 18: Eficiencia Energética -->
+        <div id="scene-18" class="scene">
+            <h2>Fase 18: Medidas de Eficiencia Energética</h2>
+            <p>El plan de eficiencia energética necesita identificar medidas efectivas.</p>
+            
+            <div class="puzzle-container">
+                <p>Selecciona las medidas que SÍ mejoran la eficiencia energética en edificios (6 respuestas correctas):</p>
+                <div class="option-group" id="efficiency-options">
+                </div>
+                
+                <div class="feedback-container" id="efficiency-feedback"></div>
+                <button class="btn" id="efficiency-verify" onclick="checkEfficiencyAnswer()">Verificar</button>
+                <button class="btn" id="efficiency-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
+            </div>
+            
+            <button class="btn-hint" onclick="toggleHint('hint-29')">¿Necesitas una pista?</button>
+            <div class="hint" id="hint-29">
+                <p>Pista: Las medidas de eficiencia reducen el consumo energético sin disminuir el confort.</p>
+            </div>
+        </div>
+
+        <!-- Escena 19: Gestión energética -->
+        <div id="scene-19" class="scene">
+            <h2>Fase 19: Gestión Energética Sostenible</h2>
+            <p>El sistema de gestión energética de la ciudad necesita recalibrarse. Debes resolver este acertijo sobre energía renovable.</p>
+            <div class="puzzle-container">
+                <p>En una ciudad española, el 40% de la energía proviene de fuentes renovables. Si la ciudad consume 500 MWh diarios, ¿cuántos MWh provienen de fuentes renovables?</p>
+                <input type="text" id="energy-answer" placeholder="Ingresa tu respuesta en MWh">
+                <div class="feedback-container" id="energy-feedback"></div>
+                <button class="btn" id="energy-verify" onclick="checkEnergyAnswer()">Verificar</button>
+                <button class="btn" id="energy-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
+            </div>
+            
+            <button class="btn-hint" onclick="toggleHint('hint-2')">¿Necesitas una pista?</button>
+            <div class="hint" id="hint-2">
+                <p>Pista: Recuerda que el porcentaje representa una parte del total.</p>
+            </div>
+        </div>
+
+        <!-- Escena 20: Alumbrado Público -->
+        <div id="scene-20" class="scene">
+            <h2>Fase 20: Sistema de Alumbrado Público Inteligente</h2>
+            <p>El sistema de alumbrado necesita ser optimizado para ahorrar energía.</p>
+            
+            <div class="puzzle-container">
+                <p>¿Cuál de estas estrategias es MÁS eficiente para reducir el consumo energético del alumbrado público?</p>
+                <select id="lighting-answer">
+                    <option value="">Selecciona una opción</option>
+                </select>
+                <div class="feedback-container" id="lighting-feedback"></div>
+                <button class="btn" id="lighting-verify" onclick="checkLightingAnswer()">Verificar</button>
+                <button class="btn" id="lighting-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
+            </div>
+            
+            <button class="btn-hint" onclick="toggleHint('hint-22')">¿Necesitas una pista?</button>
+            <div class="hint" id="hint-22">
+                <p>Pista: Considera tecnologías que adapten el consumo a las necesidades reales.</p>
+            </div>
+        </div>
+
+        <!-- Escena 21: Plataforma de Participación Ciudadana -->
+        <div id="scene-21" class="scene">
+            <h2>Fase 21: Plataforma de Participación Ciudadana</h2>
             <p>La plataforma digital de participación ciudadana necesita que clasifiques correctamente las propuestas recibidas.</p>
             
             <div class="puzzle-container">
@@ -672,7 +954,7 @@
                 </div>
                 
                 <div class="reset-container">
-                    <button class="btn-reset" onclick="resetMatchingGame(9)">
+                    <button class="btn-reset" onclick="resetMatchingGame(21)">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
                         </svg>
@@ -691,9 +973,9 @@
             </div>
         </div>
 
-        <!-- Escena 10: Ciberseguridad Urbana -->
-        <div id="scene-10" class="scene">
-            <h2>Fase 10: Ciberseguridad Urbana</h2>
+        <!-- Escena 22: Ciberseguridad Urbana -->
+        <div id="scene-22" class="scene">
+            <h2>Fase 22: Ciberseguridad Urbana</h2>
             <p>El sistema de ciberseguridad de la ciudad ha detectado intentos de intrusión. Debes identificar la amenaza.</p>
             
             <div class="puzzle-container">
@@ -711,109 +993,52 @@
             </div>
         </div>
 
-        <!-- Escena 11: Turismo Inteligente -->
-        <div id="scene-11" class="scene">
-            <h2>Fase 11: Sistema de Turismo Inteligente</h2>
-            <p>La plataforma de turismo inteligente necesita que identifiques las tecnologías más adecuadas.</p>
+        <!-- Escena 23: Reciclaje de pilas y baterías -->
+        <div id="scene-23" class="scene">
+            <h2>Fase 23: Gestión de Pilas y Baterías</h2>
+            <p>El sistema de recogida de pilas y baterías necesita que identifiques los puntos de reciclaje adecuados.</p>
             
             <div class="puzzle-container">
-                <p>¿Cuál de estas tecnologías NO se utiliza típicamente en sistemas de turismo inteligente?</p>
-                <div class="option-group" id="tourism-options">
+                <p>Relaciona cada tipo de pila/batería con su punto de reciclaje correcto:</p>
+                
+                <div class="matching-game">
+                    <div class="matching-column">
+                        <h3>Tipos de pilas/baterías</h3>
+                        <div id="pilas-container-18">
+                        </div>
+                    </div>
+                    <div class="matching-column">
+                        <h3>Puntos de reciclaje</h3>
+                        <div id="puntoA" class="matching-item" ondrop="dropMatch(event)" ondragover="allowDrop(event)">Contenedor específico en supermercados</div>
+                        <div id="puntoB" class="matching-item" ondrop="dropMatch(event)" ondragover="allowDrop(event)">Taller mecánico o punto limpio</div>
+                        <div id="puntoC" class="matching-item" ondrop="dropMatch(event)" ondragover="allowDrop(event)">Tienda de electrónica o punto limpio</div>
+                        <div id="puntoD" class="matching-item" ondrop="dropMatch(event)" ondragover="allowDrop(event)">Punto limpio o tienda especializada</div>
+                    </div>
                 </div>
-                <div class="feedback-container" id="tourism-feedback"></div>
-                <button class="btn" id="tourism-verify" onclick="checkTourismAnswer()">Verificar</button>
-                <button class="btn" id="tourism-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
-            </div>
-            
-            <button class="btn-hint" onclick="toggleHint('hint-11')">¿Necesitas una pista?</button>
-            <div class="hint" id="hint-11">
-                <p>Pista: Piensa en tecnologías relevantes para la experiencia turística.</p>
-            </div>
-        </div>
-
-        <!-- Escena 12: Salud Urbana -->
-        <div id="scene-12" class="scene">
-            <h2>Fase 12: Plataforma de Salud Urbana</h2>
-            <p>El sistema de monitorización de salud pública necesita configurarse correctamente.</p>
-            
-            <div class="puzzle-container">
-                <p>¿Cuál de estos NO es un indicador típico de salud urbana monitorizado en ciudades inteligentes?</p>
-                <div class="option-group" id="health-options">
+                
+                <div class="reset-container">
+                    <button class="btn-reset" onclick="resetMatchingGame(23)">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                        </svg>
+                        Reiniciar
+                    </button>
                 </div>
-                <div class="feedback-container" id="health-feedback"></div>
-                <button class="btn" id="health-verify" onclick="checkHealthAnswer()">Verificar</button>
-                <button class="btn" id="health-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
+                
+                <div class="feedback-container" id="pilas-feedback"></div>
+                <button class="btn" id="pilas-verify" onclick="checkPilasAnswer()">Verificar</button>
+                <button class="btn" id="pilas-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
             </div>
             
-            <button class="btn-hint" onclick="toggleHint('hint-12')">¿Necesitas una pista?</button>
-            <div class="hint" id="hint-12">
-                <p>Pista: Piensa en indicadores de salud pública, no datos médicos personales.</p>
+            <button class="btn-hint" onclick="toggleHint('hint-18')">¿Necesitas una pista?</button>
+            <div class="hint" id="hint-18">
+                <p>Pista: Considera el tamaño, toxicidad y valor de reutilización de cada tipo de pila/batería.</p>
             </div>
         </div>
 
-        <!-- Escena 13: Economía Circular -->
-        <div id="scene-13" class="scene">
-            <h2>Fase 13: Sistema de Economía Circular</h2>
-            <p>La plataforma de economía circular necesita que identifiques prácticas sostenibles.</p>
-            
-            <div class="puzzle-container">
-                <p>¿Cuál de estas NO es una práctica característica de economía circular?</p>
-                <div class="option-group" id="circular-options">
-                </div>
-                <div class="feedback-container" id="circular-feedback"></div>
-                <button class="btn" id="circular-verify" onclick="checkCircularAnswer()">Verificar</button>
-                <button class="btn" id="circular-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
-            </div>
-            
-            <button class="btn-hint" onclick="toggleHint('hint-13')">¿Necesitas una pista?</button>
-            <div class="hint" id="hint-13">
-                <p>Pista: La economía circular busca eliminar los residuos y mantener los materiales en uso.</p>
-            </div>
-        </div>
-
-        <!-- Escena 14: Gobernanza de Datos -->
-        <div id="scene-14" class="scene">
-            <h2>Fase 14: Gobernanza de Datos Urbanos</h2>
-            <p>El sistema de gobernanza de datos necesita que identifiques principios éticos.</p>
-            
-            <div class="puzzle-container">
-                <p>¿Cuál de estos NO es un principio fundamental de la gobernanza de datos en ciudades inteligentes?</p>
-                <div class="option-group" id="governance-options">
-                </div>
-                <div class="feedback-container" id="governance-feedback"></div>
-                <button class="btn" id="governance-verify" onclick="checkGovernanceAnswer()">Verificar</button>
-                <button class="btn" id="governance-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
-            </div>
-            
-            <button class="btn-hint" onclick="toggleHint('hint-14')">¿Necesitas una pista?</button>
-            <div class="hint" id="hint-14">
-                <p>Pista: Piensa en prácticas que respeten los derechos de los ciudadanos.</p>
-            </div>
-        </div>
-
-        <!-- Escena 15: Código de acceso -->
-        <div id="scene-15" class="scene">
-            <h2>Fase 15: Código de Acceso</h2>
-            <p>¡Estás cerca de restaurar varios sistemas! Solo necesitas descifrar el código basado en datos de ciudades inteligentes españolas.</p>
-            
-            <div class="puzzle-container">
-                <p>Resuelve este acertijo para obtener el código :</p>
-                <p>En España, hay una ciudad que es líder en implementación de tecnologías smart city. Su nombre tiene 9 letras y comienza con "B". ¿Cuál es la tercera letra de esta ciudad?</p>
-                <input type="text" id="city-answer" placeholder="Ingresa la tercera letra">
-                <div class="feedback-container" id="city-feedback"></div>
-                <button class="btn" id="city-verify" onclick="checkCityAnswer()">Verificar</button>
-                <button class="btn" id="city-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
-            </div>
-            
-            <button class="btn-hint" onclick="toggleHint('hint-15')">¿Necesitas una pista?</button>
-            <div class="hint" id="hint-15">
-                <p>Pista: Esta ciudad es la capital de una comunidad autónoma y es conocida por su proyecto "Smart City".</p>
-            </div>
-        </div>
-
-        <!-- Escena 16: Reciclaje de RAEE -->
-        <div id="scene-16" class="scene">
-            <h2>Fase 16: Gestión de Residuos Electrónicos</h2>
+        <!-- Escena 24: Reciclaje de RAEE -->
+        <div id="scene-24" class="scene">
+            <h2>Fase 24: Gestión de Residuos Electrónicos</h2>
             <p>El sistema de gestión de RAEE (Residuos de Aparatos Eléctricos y Electrónicos) necesita configuración.</p>
             
             <div class="puzzle-container">
@@ -847,210 +1072,30 @@
             </div>
         </div>
 
-        <!-- Escena 17: Separación de residuos orgánicos -->
-        <div id="scene-17" class="scene">
-            <h2>Fase 17: Gestión de Residuos Orgánicos</h2>
-            <p>El nuevo sistema de recogida de residuos orgánicos necesita que identifiques correctamente los materiales compostables.</p>
+        <!-- Escena 25: Conectividad 5G -->
+        <div id="scene-25" class="scene">
+            <h2>Fase 25: Red de Conectividad 5G</h2>
+            <p>La red 5G de la ciudad tiene problemas de cobertura. Debes optimizar la ubicación de las antenas.</p>
             
             <div class="puzzle-container">
-                <p>Selecciona los residuos que SÍ pueden ir al contenedor de orgánica (marrón) (6 respuestas correctas):</p>
-                <div class="option-group" id="organica-options">
-                </div>
-                
-                <div class="feedback-container" id="organica-feedback"></div>
-                <button class="btn" id="organica-verify" onclick="checkOrganicaAnswer()">Verificar</button>
-                <button class="btn" id="organica-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
-            </div>
-            
-            <button class="btn-hint" onclick="toggleHint('hint-17')">¿Necesitas una pista?</button>
-            <div class="hint" id="hint-17">
-                <p>Pista: Los residuos orgánicos son materiales biodegradables que pueden convertirse en compost.</p>
-            </div>
-        </div>
-
-        <!-- Escena 18: Reciclaje de pilas y baterías -->
-        <div id="scene-18" class="scene">
-            <h2>Fase 18: Gestión de Pilas y Baterías</h2>
-            <p>El sistema de recogida de pilas y baterías necesita que identifiques los puntos de reciclaje adecuados.</p>
-            
-            <div class="puzzle-container">
-                <p>Relaciona cada tipo de pila/batería con su punto de reciclaje correcto:</p>
-                
-                <div class="matching-game">
-                    <div class="matching-column">
-                        <h3>Tipos de pilas/baterías</h3>
-                        <div id="pilas-container-18">
-                        </div>
-                    </div>
-                    <div class="matching-column">
-                        <h3>Puntos de reciclaje</h3>
-                        <div id="puntoA" class="matching-item" ondrop="dropMatch(event)" ondragover="allowDrop(event)">Contenedor específico en supermercados</div>
-                        <div id="puntoB" class="matching-item" ondrop="dropMatch(event)" ondragover="allowDrop(event)">Taller mecánico o punto limpio</div>
-                        <div id="puntoC" class="matching-item" ondrop="dropMatch(event)" ondragover="allowDrop(event)">Tienda de electrónica o punto limpio</div>
-                        <div id="puntoD" class="matching-item" ondrop="dropMatch(event)" ondragover="allowDrop(event)">Punto limpio o tienda especializada</div>
-                    </div>
-                </div>
-                
-                <div class="reset-container">
-                    <button class="btn-reset" onclick="resetMatchingGame(18)">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
-                        </svg>
-                        Reiniciar
-                    </button>
-                </div>
-                
-                <div class="feedback-container" id="pilas-feedback"></div>
-                <button class="btn" id="pilas-verify" onclick="checkPilasAnswer()">Verificar</button>
-                <button class="btn" id="pilas-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
-            </div>
-            
-            <button class="btn-hint" onclick="toggleHint('hint-18')">¿Necesitas una pista?</button>
-            <div class="hint" id="hint-18">
-                <p>Pista: Considera el tamaño, toxicidad y valor de reutilización de cada tipo de pila/batería.</p>
-            </div>
-        </div>
-
-        <!-- Escena 19: Planificación Urbana Sostenible -->
-        <div id="scene-19" class="scene">
-            <h2>Fase 19: Planificación Urbana Sostenible</h2>
-            <p>El sistema de planificación urbana necesita que priorices proyectos según criterios de sostenibilidad.</p>
-            
-            <div class="puzzle-container">
-                <p>Ordena estos proyectos de planificación urbana del más prioritario (1) al menos prioritario (4) arrastrando los proyectos (no los números):</p>
-                
-                <div id="planificacion-container" style="display: grid; grid-template-columns: 1fr; gap: 15px; margin: 20px 0;">
-                </div>
-                
-                <div class="reset-container">
-                    <button class="btn-reset" onclick="resetPlanificacion()">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
-                        </svg>
-                        Reiniciar
-                    </button>
-                </div>
-                
-                <div class="feedback-container" id="planificacion-feedback"></div>
-                <button class="btn" id="planificacion-verify" onclick="checkPlanificacionAnswer()">Verificar</button>
-                <button class="btn" id="planificacion-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
-            </div>
-            
-            <button class="btn-hint" onclick="toggleHint('hint-19')">¿Necesitas una pista?</button>
-            <div class="hint" id="hint-19">
-                <p>Pista: Considera el orden de intervención: primero lo que genera mayores beneficios ambientales a largo plazo, luego eficiencia operativa.</p>
-            </div>
-        </div>
-
-        <!-- Escena 20: Movilidad como Servicio (MaaS) -->
-        <div id="scene-20" class="scene">
-            <h2>Fase 20: Plataforma de Movilidad como Servicio</h2>
-            <p>La plataforma MaaS (Mobility as a Service) necesita integrar correctamente los diferentes modos de transporte.</p>
-            
-            <div class="puzzle-container">
-                <p>Relaciona cada característica de MaaS con su beneficio correspondiente:</p>
-                
-                <div class="matching-game">
-                    <div class="matching-column">
-                        <h3>Características de MaaS</h3>
-                        <div id="caracteristicas-container-20">
-                        </div>
-                    </div>
-                    <div class="matching-column">
-                        <h3>Beneficios</h3>
-                        <div id="beneficioA" class="matching-item" ondrop="dropMatch(event)" ondragover="allowDrop(event)">Facilita el uso combinado de transporte público y privado</div>
-                        <div id="beneficioB" class="matching-item" ondrop="dropMatch(event)" ondragover="allowDrop(event)">Permite optimizar tiempos de viaje</div>
-                        <div id="beneficioC" class="matching-item" ondrop="dropMatch(event)" ondragover="allowDrop(event)">Elimina la necesidad de múltiples apps y suscripciones</div>
-                        <div id="beneficioD" class="matching-item" ondrop="dropMatch(event)" ondragover="allowDrop(event)">Garantiza disponibilidad de medios de transporte</div>
-                    </div>
-                </div>
-                
-                <div class="reset-container">
-                    <button class="btn-reset" onclick="resetMatchingGame(20)">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
-                        </svg>
-                        Reiniciar
-                    </button>
-                </div>
-                
-                <div class="feedback-container" id="maas-feedback"></div>
-                <button class="btn" id="maas-verify" onclick="checkMaasAnswer()">Verificar</button>
-                <button class="btn" id="maas-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
-            </div>
-            
-            <button class="btn-hint" onclick="toggleHint('hint-20')">¿Necesitas una pista?</button>
-            <div class="hint" id="hint-20">
-                <p>Pista: Piensa en cómo cada característica resuelve un problema específico de movilidad urbana.</p>
-            </div>
-        </div>
-
-        <!-- Escena 21: Gestión del Agua -->
-        <div id="scene-21" class="scene">
-            <h2>Fase 21: Sistema Inteligente de Gestión del Agua</h2>
-            <p>El sistema de gestión de agua potable necesita optimización para reducir pérdidas.</p>
-            
-            <div class="puzzle-container">
-                <p>¿Cuál de estas tecnologías es MÁS efectiva para detectar fugas en la red de distribución de agua?</p>
-                <select id="water-answer">
+                <p>Selecciona la ubicación más adecuada para una nueva antena 5G considerando estos factores:</p>
+                <select id="antenna-answer">
                     <option value="">Selecciona una opción</option>
                 </select>
-                <div class="feedback-container" id="water-feedback"></div>
-                <button class="btn" id="water-verify" onclick="checkWaterAnswer()">Verificar</button>
-                <button class="btn" id="water-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
+                <div class="feedback-container" id="antenna-feedback"></div>
+                <button class="btn" id="antenna-verify" onclick="checkAntennaAnswer()">Verificar</button>
+                <button class="btn" id="antenna-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
             </div>
             
-            <button class="btn-hint" onclick="toggleHint('hint-21')">¿Necesitas una pista?</button>
-            <div class="hint" id="hint-21">
-                <p>Pista: Piensa en tecnologías que permitan monitorización continua y detección temprana.</p>
+            <button class="btn-hint" onclick="toggleHint('hint-7')">¿Necesitas una pista?</button>
+            <div class="hint" id="hint-7">
+                <p>Pista: Piensa en dónde se necesita mayor capacidad de red y cobertura.</p>
             </div>
         </div>
 
-        <!-- Escena 22: Alumbrado Público -->
-        <div id="scene-22" class="scene">
-            <h2>Fase 22: Sistema de Alumbrado Público Inteligente</h2>
-            <p>El sistema de alumbrado necesita ser optimizado para ahorrar energía.</p>
-            
-            <div class="puzzle-container">
-                <p>¿Cuál de estas estrategias es MÁS eficiente para reducir el consumo energético del alumbrado público?</p>
-                <select id="lighting-answer">
-                    <option value="">Selecciona una opción</option>
-                </select>
-                <div class="feedback-container" id="lighting-feedback"></div>
-                <button class="btn" id="lighting-verify" onclick="checkLightingAnswer()">Verificar</button>
-                <button class="btn" id="lighting-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
-            </div>
-            
-            <button class="btn-hint" onclick="toggleHint('hint-22')">¿Necesitas una pista?</button>
-            <div class="hint" id="hint-22">
-                <p>Pista: Considera tecnologías que adapten el consumo a las necesidades reales.</p>
-            </div>
-        </div>
-
-        <!-- Escena 23: Movilidad Sostenible -->
-        <div id="scene-23" class="scene">
-            <h2>Fase 23: Plan de Movilidad Sostenible</h2>
-            <p>La ciudad necesita elegir la mejor estrategia para promover la movilidad sostenible.</p>
-            
-            <div class="puzzle-container">
-                <p>¿Cuál de estas medidas tiene MAYOR impacto en la reducción del uso del coche privado en el centro urbano?</p>
-                <select id="mobility-answer">
-                    <option value="">Selecciona una opción</option>
-                </select>
-                <div class="feedback-container" id="mobility-feedback"></div>
-                <button class="btn" id="mobility-verify" onclick="checkMobilityAnswer()">Verificar</button>
-                <button class="btn" id="mobility-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
-            </div>
-            
-            <button class="btn-hint" onclick="toggleHint('hint-23')">¿Necesitas una pista?</button>
-            <div class="hint" id="hint-23">
-                <p>Pista: La solución aborda el problema desde múltiples frentes: limitación de acceso, oferta alternativa y seguridad en desplazamientos.</p>
-            </div>
-        </div>
-
-        <!-- Escena 24: Espacios Verdes -->
-        <div id="scene-24" class="scene">
-            <h2>Fase 24: Gestión de Espacios Verdes Urbanos</h2>
+        <!-- Escena 26: Espacios Verdes -->
+        <div id="scene-26" class="scene">
+            <h2>Fase 26: Gestión de Espacios Verdes Urbanos</h2>
             <p>El sistema de riego de parques y jardines necesita ser optimizado.</p>
             
             <div class="puzzle-container">
@@ -1069,30 +1114,29 @@
             </div>
         </div>
 
-        <!-- Escena 25: Energías Renovables -->
-        <div id="scene-25" class="scene">
-            <h2>Fase 25: Integración de Energías Renovables</h2>
-            <p>La ciudad debe elegir la mejor ubicación para una nueva instalación de energía renovable.</p>
+        <!-- Escena 27: IoT y Sensores -->
+        <div id="scene-27" class="scene">
+            <h2>Fase 27: Red de Sensores IoT</h2>
+            <p>La red de sensores IoT de la ciudad ha detectado anomalías. Debes identificar el sensor que no pertenece al ecosistema.</p>
             
             <div class="puzzle-container">
-                <p>¿Cuál de estas ubicaciones es MÁS adecuada para una planta de energía solar fotovoltaica?</p>
-                <select id="solar-answer">
-                    <option value="">Selecciona una opción</option>
-                </select>
-                <div class="feedback-container" id="solar-feedback"></div>
-                <button class="btn" id="solar-verify" onclick="checkSolarAnswer()">Verificar</button>
-                <button class="btn" id="solar-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
+                <p>Selecciona el sensor que NO forma parte de una red de ciudad inteligente:</p>
+                <div class="option-group" id="sensor-options">
+                </div>
+                <div class="feedback-container" id="sensor-feedback"></div>
+                <button class="btn" id="sensor-verify" onclick="checkSensorAnswer()">Verificar</button>
+                <button class="btn" id="sensor-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
             </div>
             
-            <button class="btn-hint" onclick="toggleHint('hint-25')">¿Necesitas una pista?</button>
-            <div class="hint" id="hint-25">
-                <p>Pista: Piensa en ubicaciones con máxima exposición solar y mínimo impacto ambiental.</p>
+            <button class="btn-hint" onclick="toggleHint('hint-4')">¿Necesitas una pista?</button>
+            <div class="hint" id="hint-4">
+                <p>Pista: Piensa en qué sensores se utilizan para monitorizar infraestructuras urbanas.</p>
             </div>
         </div>
 
-        <!-- Escena 26: Compostaje Urbano -->
-        <div id="scene-26" class="scene">
-            <h2>Fase 26: Sistema de Compostaje Urbano</h2>
+        <!-- Escena 28: Compostaje Urbano -->
+        <div id="scene-28" class="scene">
+            <h2>Fase 28: Sistema de Compostaje Urbano</h2>
             <p>El nuevo programa de compostaje comunitario necesita identificar materiales adecuados.</p>
             
             <div class="puzzle-container">
@@ -1111,87 +1155,43 @@
             </div>
         </div>
 
-        <!-- Escena 27: Huertos Urbanos -->
-        <div id="scene-27" class="scene">
-            <h2>Fase 27: Gestión de Huertos Urbanos</h2>
-            <p>El programa de huertos urbanos necesita identificar prácticas sostenibles.</p>
-            
-            <div class="puzzle-container">
-                <p>Selecciona las prácticas que SÍ son sostenibles para huertos urbanos (5 respuestas correctas):</p>
-                <div class="option-group" id="garden-options">
-                </div>
-                
-                <div class="feedback-container" id="garden-feedback"></div>
-                <button class="btn" id="garden-verify" onclick="checkGardenAnswer()">Verificar</button>
-                <button class="btn" id="garden-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
-            </div>
-            
-            <button class="btn-hint" onclick="toggleHint('hint-27')">¿Necesitas una pista?</button>
-            <div class="hint" id="hint-27">
-                <p>Pista: Las prácticas sostenibles respetan el medio ambiente y promueven la biodiversidad.</p>
-            </div>
-        </div>
-
-        <!-- Escena 28: Movilidad Activa -->
-        <div id="scene-28" class="scene">
-            <h2>Fase 28: Fomento de la Movilidad Activa</h2>
-            <p>El plan de movilidad activa necesita identificar infraestructuras adecuadas.</p>
-            
-            <div class="puzzle-container">
-                <p>Selecciona las infraestructuras que SÍ fomentan la movilidad activa (caminar y bicicleta) (4 respuestas correctas):</p>
-                <div class="option-group" id="active-options">
-                </div>
-                
-                <div class="feedback-container" id="active-feedback"></div>
-                <button class="btn" id="active-verify" onclick="checkActiveAnswer()">Verificar</button>
-                <button class="btn" id="active-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
-            </div>
-            
-            <button class="btn-hint" onclick="toggleHint('hint-28')">¿Necesitas una pista?</button>
-            <div class="hint" id="hint-28">
-                <p>Pista: Piensa en infraestructuras que hagan más seguros y atractivos los desplazamientos a pie y en bici.</p>
-            </div>
-        </div>
-
-        <!-- Escena 29: Eficiencia Energética -->
+        <!-- Escena 29: Salud Urbana -->
         <div id="scene-29" class="scene">
-            <h2>Fase 29: Medidas de Eficiencia Energética</h2>
-            <p>El plan de eficiencia energética necesita identificar medidas efectivas.</p>
+            <h2>Fase 29: Plataforma de Salud Urbana</h2>
+            <p>El sistema de monitorización de salud pública necesita configurarse correctamente.</p>
             
             <div class="puzzle-container">
-                <p>Selecciona las medidas que SÍ mejoran la eficiencia energética en edificios (6 respuestas correctas):</p>
-                <div class="option-group" id="efficiency-options">
+                <p>¿Cuál de estos NO es un indicador típico de salud urbana monitorizado en ciudades inteligentes?</p>
+                <div class="option-group" id="health-options">
                 </div>
-                
-                <div class="feedback-container" id="efficiency-feedback"></div>
-                <button class="btn" id="efficiency-verify" onclick="checkEfficiencyAnswer()">Verificar</button>
-                <button class="btn" id="efficiency-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
+                <div class="feedback-container" id="health-feedback"></div>
+                <button class="btn" id="health-verify" onclick="checkHealthAnswer()">Verificar</button>
+                <button class="btn" id="health-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
             </div>
             
-            <button class="btn-hint" onclick="toggleHint('hint-29')">¿Necesitas una pista?</button>
-            <div class="hint" id="hint-29">
-                <p>Pista: Las medidas de eficiencia reducen el consumo energético sin disminuir el confort.</p>
+            <button class="btn-hint" onclick="toggleHint('hint-12')">¿Necesitas una pista?</button>
+            <div class="hint" id="hint-12">
+                <p>Pista: Piensa en indicadores de salud pública, no datos médicos personales.</p>
             </div>
         </div>
-
-        <!-- Escena 30: Biodiversidad Urbana -->
+        
+        <!-- Escena 30: Código de acceso Final -->
         <div id="scene-30" class="scene">
-            <h2>Fase 30: Fomento de la Biodiversidad Urbana</h2>
-            <p>El plan de biodiversidad necesita identificar acciones beneficiosas.</p>
+            <h2>Fase 30: Código de Acceso Final</h2>
+            <p>¡Estás cerca de restaurar varios sistemas! Solo necesitas descifrar el código basado en datos de ciudades inteligentes españolas.</p>
             
             <div class="puzzle-container">
-                <p>Selecciona las acciones que SÍ fomentan la biodiversidad en entornos urbanos (5 respuestas correctas):</p>
-                <div class="option-group" id="biodiversity-options">
-                </div>
-                
-                <div class="feedback-container" id="biodiversity-feedback"></div>
-                <button class="btn" id="biodiversity-verify" onclick="checkBiodiversityAnswer()">Verificar</button>
-                <button class="btn" id="biodiversity-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
+                <p>Resuelve este acertijo para obtener el código final :</p>
+                <p>En España, hay una ciudad que es líder en implementación de tecnologías smart city. Su nombre tiene 9 letras y comienza con "B". ¿Cuál es la tercera letra de esta ciudad?</p>
+                <input type="text" id="city-answer" placeholder="Ingresa la tercera letra">
+                <div class="feedback-container" id="city-feedback"></div>
+                <button class="btn" id="city-verify" onclick="checkCityAnswer()">Verificar</button>
+                <button class="btn" id="city-continue" onclick="nextSceneWithScroll()" style="display:none;">Continuar</button>
             </div>
             
-            <button class="btn-hint" onclick="toggleHint('hint-30')">¿Necesitas una pista?</button>
-            <div class="hint" id="hint-30">
-                <p>Pista: Las acciones que favorecen la biodiversidad crean habitats para diferentes especies.</p>
+            <button class="btn-hint" onclick="toggleHint('hint-15')">¿Necesitas una pista?</button>
+            <div class="hint" id="hint-15">
+                <p>Pista: Esta ciudad es la capital de una comunidad autónoma y es conocida por su proyecto "Smart City".</p>
             </div>
         </div>
 
@@ -1965,7 +1965,7 @@
                 const binId = ev.target.id;
                 const itemId = draggedElement.id;
                 
-                if (currentScene === 3) {
+                if (currentScene === 9) {
                     // Limpiar de otros contenedores
                     Object.keys(wasteAnswers).forEach(color => {
                         const index = wasteAnswers[color].indexOf(itemId);
@@ -1978,7 +1978,7 @@
                     if (binId === 'yellow-bin') wasteAnswers.yellow.push(itemId);
                     if (binId === 'green-bin') wasteAnswers.green.push(itemId);
                     if (binId === 'blue-bin') wasteAnswers.blue.push(itemId);
-                } else if (currentScene === 16) {
+                } else if (currentScene === 24) {
                     // Limpiar de otros contenedores
                     Object.keys(raeeAnswers).forEach(tipo => {
                         const index = raeeAnswers[tipo].indexOf(itemId);
@@ -2132,6 +2132,8 @@
         }
 
         function checkWasteAnswer() {
+            if (currentScene !== 9) return;
+
             const feedback = document.getElementById('waste-feedback');
             const correctAnswers = {
                 yellow: ['item1', 'item4'],
@@ -2229,21 +2231,21 @@
             const feedback = document.getElementById('matching-feedback');
             let correctPairs = {};
             
-            if (currentScene === 9) {
+            if (currentScene === 21) {
                 correctPairs = {
                     'propuesta1': 'categoriaA',
                     'propuesta2': 'categoriaB',
                     'propuesta3': 'categoriaD',
                     'propuesta4': 'categoriaC'
                 };
-            } else if (currentScene === 18) {
+            } else if (currentScene === 23) {
                 correctPairs = {
                     'pila1': 'puntoA',
                     'pila2': 'puntoB',
                     'pila3': 'puntoC',
                     'pila4': 'puntoD'
                 };
-            } else if (currentScene === 20) {
+            } else if (currentScene === 2) {
                 correctPairs = {
                     'caracteristica1': 'beneficioC',
                     'caracteristica2': 'beneficioA',
@@ -2345,6 +2347,8 @@
         }
 
         function checkRaeeAnswer() {
+            if (currentScene !== 24) return;
+
             const feedback = document.getElementById('raee-feedback');
             const correctAnswers = {
                 'punto-limpio': ['raee2', 'raee5'],
@@ -2677,8 +2681,8 @@
         function resetMatchingGame(sceneNumber) {
             matchingPairs = {};
             
-            if (sceneNumber === 9) {
-                document.querySelectorAll('#scene-9 .matching-item').forEach(item => {
+            if (sceneNumber === 21) {
+                document.querySelectorAll('#scene-21 .matching-item').forEach(item => {
                     item.classList.remove('matched');
                     item.style.display = 'block';
                     if (item.id === 'categoriaA') item.textContent = 'Movilidad sostenible';
@@ -2686,8 +2690,8 @@
                     if (item.id === 'categoriaC') item.textContent = 'Infraestructura verde';
                     if (item.id === 'categoriaD') item.textContent = 'Energía y medio ambiente';
                 });
-            } else if (sceneNumber === 18) {
-                document.querySelectorAll('#scene-18 .matching-item').forEach(item => {
+            } else if (sceneNumber === 23) {
+                document.querySelectorAll('#scene-23 .matching-item').forEach(item => {
                     item.classList.remove('matched');
                     item.style.display = 'block';
                     if (item.id === 'puntoA') item.textContent = 'Contenedor específico en supermercados';
@@ -2695,8 +2699,8 @@
                     if (item.id === 'puntoC') item.textContent = 'Tienda de electrónica o punto limpio';
                     if (item.id === 'puntoD') item.textContent = 'Punto limpio o tienda especializada';
                 });
-            } else if (sceneNumber === 20) {
-                document.querySelectorAll('#scene-20 .matching-item').forEach(item => {
+            } else if (sceneNumber === 2) {
+                document.querySelectorAll('#scene-2 .matching-item').forEach(item => {
                     item.classList.remove('matched');
                     item.style.display = 'block';
                     if (item.id === 'beneficioA') item.textContent = 'Facilita el uso combinado de transporte público y privado';
@@ -2766,9 +2770,9 @@
 
         function getScenePrefix(sceneNumber) {
             switch(sceneNumber) {
-                case 9: return 'matching';
-                case 18: return 'pilas';
-                case 20: return 'maas';
+                case 21: return 'matching';
+                case 23: return 'pilas';
+                case 2: return 'maas';
                 default: return 'matching';
             }
         }
