@@ -1250,11 +1250,7 @@
             
             if (sound && volumeSlider) {
                 sound.currentTime = 0;
-                
-                // 1. Obtener el volumen base del control deslizante (0-100)
-                const baseVolume = parseInt(volumeSlider.value) / 100; // Convertir a 0-1
-                
-                // 2. Multiplicadores relativos para cada tipo de sonido
+                const baseVolume = parseInt(volumeSlider.value) / 100;
                 const volumeMultipliers = {
                     'sonidoBotonJugar': 0.7,
                     'sonidoBotonContinuar': 0.9,
@@ -1263,17 +1259,10 @@
                     'sonidoUrgencia': 0.5
                 };
                 
-                // 3. Calcular volumen final con límites
                 const multiplier = volumeMultipliers[soundId] || 1.0;
                 let finalVolume = baseVolume * multiplier;
-                
-                // 4. Asegurar que no exceda 1.0 (máximo volumen permitido)
                 finalVolume = Math.min(finalVolume, 1.0);
-                
-                // 5. Aplicar el volumen calculado
                 sound.volume = finalVolume;
-                
-                // 6. Reproducir (con manejo de errores)
                 sound.play().catch(e => {
                     console.log('Error reproduciendo sonido:', e);
                 });
@@ -1292,7 +1281,6 @@
             startTimer();
             updateProgress();
             
-            // Inicializar escenas con opciones aleatorias
             initializeRandomOptions();
             
             // Desplazar al inicio de la escena
@@ -1835,11 +1823,10 @@
             const seconds = (timeLeft % 60).toString().padStart(2, '0');
             document.getElementById('timer').textContent = `Tiempo: ${minutes}:${seconds}`;
             
-            // Cambiar color cuando queden 10 segundos o menos
+            // Cuando queden 10 segundos o menos
             if (timeLeft <= 10) {
                 document.getElementById('timer').style.color = '#ff6b6b';
                 document.getElementById('timer').style.animation = 'pulse 0.5s infinite';
-                // Reproducir sonido de urgencia cuando llega a 10 segundos
                 if (timeLeft === 10) {
                     playSound('sonidoUrgencia');
                 }
@@ -1850,18 +1837,12 @@
         }
 
         function endGameByTime() {
-            // Calcular pruebas completadas
             const completedTests = currentScene - 1;
-            
-            // Ocultar todas las escenas
             document.querySelectorAll('.scene').forEach(scene => {
                 scene.classList.remove('active');
             });
-            
-            // Mostrar escena final con resultados
+
             document.getElementById('scene-final').classList.add('active');
-            
-            // Actualizar el mensaje final
             const finalMessage = document.querySelector('.final-message');
             finalMessage.innerHTML = `
                 <h2>¡Tiempo Agotado!</h2>
@@ -1888,20 +1869,16 @@
         function nextSceneWithScroll() {
 
             playSound('sonidoBotonContinuar');
-
             if (timeLeft <= 0) {
                 return;
             }
             document.getElementById(`scene-${currentScene}`).classList.remove('active');
             currentScene++;
-
-            // Limpiar MatchingPairs al cambiar de escena
             matchingPairs = {};
             
             if (currentScene <= totalScenes) {
                 document.getElementById(`scene-${currentScene}`).classList.add('active');
                 updateProgress();
-                // Ocultar todas las pistas al cambiar de escena
                 document.querySelectorAll('.hint').forEach(hint => {
                     hint.style.display = 'none';
                 });
@@ -1986,8 +1963,6 @@
                             raeeAnswers[tipo].splice(index, 1);
                         }
                     });
-                    
-                    // Añadir al contenedor actual
                     raeeAnswers[binId].push(itemId);
                 }
             }
@@ -2043,17 +2018,15 @@
                 const tempText = draggedElement.textContent;
                 draggedElement.textContent = targetElement.textContent;
                 targetElement.textContent = tempText;
-                
-                // Los números permanecen fijos, intercambiar el contenido
                 const draggedId = draggedElement.id;
                 const targetId = targetElement.id;
                 
-                // Intercambiar los IDs temporalmente para mantener la lógica
+                // Intercambiar los IDs temporalmente
                 const tempId = draggedElement.id;
                 draggedElement.id = targetElement.id;
                 targetElement.id = tempId;
                 
-                // Actualizar el orden basado en la posición visual
+                // Actualizar el orden
                 const allProjects = document.querySelectorAll('#planificacion-container .matching-item');
                 allProjects.forEach((project, index) => {
                     planificacionOrder[project.id] = (index + 1).toString();
@@ -2063,12 +2036,9 @@
 
         // Seleccionar opción en preguntas de opción múltiple
         function selectOption(element, type) {
-            // Deseleccionar otras opciones del mismo tipo
             document.querySelectorAll(`.option[data-type="${type}"]`).forEach(opt => {
                 opt.classList.remove('selected');
             });
-            
-            // Seleccionar la nueva opción
             element.classList.add('selected');
             element.setAttribute('data-type', type);
             selectedOption[type] = element.textContent;
@@ -2405,8 +2375,7 @@
                 'pila3': 'puntoC',
                 'pila4': 'puntoD'
             };
-            
-            // Verificación más específica
+
             let correct = true;
             for (const [item, target] of Object.entries(correctPairs)) {
                 if (matchingPairs[item] !== target) {
@@ -2414,8 +2383,7 @@
                     break;
                 }
             }
-            
-            // Solo verificar que hay exactamente los 4 pares
+
             const relevantPairs = Object.keys(matchingPairs).filter(key => key.startsWith('pila'));
             const hasAllPairs = relevantPairs.length === Object.keys(correctPairs).length;
             
@@ -2464,8 +2432,7 @@
                 'caracteristica3': 'beneficioB',
                 'caracteristica4': 'beneficioD'
             };
-            
-            // Verificación más específica
+
             let correct = true;
             for (const [item, target] of Object.entries(correctPairs)) {
                 if (matchingPairs[item] !== target) {
@@ -2473,8 +2440,7 @@
                     break;
                 }
             }
-            
-            // Solo verificar que hay exactamente los 4 pares
+
             const relevantPairs = Object.keys(matchingPairs).filter(key => key.startsWith('caracteristica'));
             const hasAllPairs = relevantPairs.length === Object.keys(correctPairs).length;
             
@@ -2908,7 +2874,6 @@
         
         if (!music) return;
         
-        // Configuración inicial
         music.volume = 0.25;
         
         let musicStarted = false;
@@ -2930,9 +2895,7 @@
         
         // Crear botón de inicio manual si autoplay bloqueado
         function createMusicButton() {
-            // Verificar si el botón ya existe
             if (document.getElementById('musicToggleBtn')) return;
-            
             const button = document.createElement('button');
             button.id = 'musicToggleBtn';
             button.innerHTML = 'Activar música';
@@ -3016,12 +2979,10 @@
         // Bajar volumen cuando la página no está visible
         document.addEventListener('visibilitychange', function() {
             if (document.hidden) {
-                // Página oculta: bajar volumen
                 if (!music.paused) {
                     music.volume = 0.1;
                 }
             } else {
-                // Página visible: restaurar volumen
                 if (!music.paused) {
                     updateMusicForTimer();
                 }
@@ -3080,12 +3041,10 @@
         
         // FUNCIÓN PARA REINICIAR MÚSICA
         
-        // Añadir a restartGame()
         if (typeof restartGame === 'function') {
             const originalRestartGame = restartGame;
             restartGame = function() {
             originalRestartGame();
-            // Reiniciar música
             if (music) {
                 music.currentTime = 0;
                 music.volume = 0.25;
@@ -3155,15 +3114,12 @@
         // Actualizar volumen de los sonidos
         function updateMusicVolume(value) {
             const volume = value / 100;
-            
-            // Actualizar volumen de TODOS los sonidos
             const allSounds = document.querySelectorAll('audio');
             allSounds.forEach(sound => {
-                // Solo actualizar si no es la música de fondo
                 if (sound.id !== 'backgroundMusic') {
                     sound.volume = volume;
                 } else {
-                    sound.volume = volume; // La música ya se actualiza aparte
+                    sound.volume = volume;
                 }
             });
             
@@ -3379,14 +3335,11 @@
             }
         }
         
-        // Cargar preferencias al inicio
         loadVolumePreferences();
         
-        // Guardar preferencias al cambiar volumen
         volumeSlider.addEventListener('change', saveVolumePreferences);
         volumeToggle.addEventListener('click', saveVolumePreferences);
-        
-        // Guardar cada 30 segundos
+
         setInterval(saveVolumePreferences, 30000);
         });
     </script>
@@ -3610,4 +3563,5 @@
         }
     </style>
 </body>
+
 </html>
